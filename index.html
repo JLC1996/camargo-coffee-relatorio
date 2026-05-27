@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Relatório de Performance Digital — Camargo Coffee | Maio 2025</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:        #0C0806;
+      --bg2:       #151009;
+      --card:      #1A1310;
+      --card2:     #211A14;
+      --red:       #C91B1B;
+      --red-light: #E52424;
+      --gold:      #C8943A;
+      --gold-lt:   #E8B458;
+      --white:     #FFFFFF;
+      --gray:      #9B9189;
+      --gray-lt:   #C8C0B8;
+      --green:     #27AE60;
+      --blue:      #2980B9;
+      --border:    rgba(200,148,58,0.14);
+      --border2:   rgba(255,255,255,0.06);
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      min-height: 100vh;
+    }
+
+    /* ─── HEADER ─── */
+    .header {
+      background: linear-gradient(135deg, #0A0705 0%, #180E08 60%, #0A0705 100%);
+      border-bottom: 2px solid var(--red);
+      padding: 28px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 15% 50%, rgba(201,27,27,0.10) 0%, transparent 55%);
+    }
+    .logo-wrap { display: flex; align-items: center; gap: 18px; position: relative; z-index: 1; }
+    .logo-wrap img { height: 64px; filter: brightness(0) invert(1); }
+    .report-meta { text-align: right; position: relative; z-index: 1; }
+    .report-label { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--red); font-weight: 700; }
+    .report-period { font-size: 26px; font-weight: 800; color: var(--white); margin-top: 4px; }
+    .report-region { font-size: 11px; color: var(--gray); margin-top: 4px; letter-spacing: 1px; }
+
+    /* ─── LAYOUT ─── */
+    .container { max-width: 1360px; margin: 0 auto; padding: 44px 56px; }
+    .section-gap { margin-bottom: 52px; }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-head .dot { width: 7px; height: 7px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
+    .section-head h2 { font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--gray); font-weight: 700; }
+
+    /* ─── KPI GRID ─── */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+    .kpi {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 18px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .2s;
+    }
+    .kpi:hover { border-color: rgba(200,148,58,.35); }
+    .kpi::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .kpi.c-red::after    { background: var(--red); }
+    .kpi.c-gold::after   { background: var(--gold); }
+    .kpi.c-green::after  { background: var(--green); }
+    .kpi.c-blue::after   { background: var(--blue); }
+    .kpi.c-purple::after { background: #8E44AD; }
+
+    .kpi-lbl { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gray); font-weight: 700; margin-bottom: 12px; }
+    .kpi-val { font-size: 30px; font-weight: 900; color: var(--white); line-height: 1; margin-bottom: 8px; }
+    .kpi-val small { font-size: 14px; font-weight: 500; color: var(--gray); }
+    .kpi-hint { font-size: 10.5px; color: var(--gray); line-height: 1.5; }
+
+    /* ─── CARDS ─── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 26px;
+    }
+    .card-head { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 22px; }
+    .card-icon {
+      width: 38px; height: 38px; border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .ci-fb     { background: rgba(66,103,178,.18); }
+    .ci-gg     { background: rgba(234,67,53,.18); }
+    .ci-crm    { background: rgba(200,148,58,.15); }
+    .ci-money  { background: rgba(39,174,96,.15); }
+
+    .card-head-text h3 { font-size: 14px; font-weight: 700; color: var(--white); }
+    .card-head-text p  { font-size: 10.5px; color: var(--gray); margin-top: 2px; }
+
+    /* metric rows */
+    .mrow {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border2);
+    }
+    .mrow:last-child { border-bottom: none; }
+    .mrow-name { font-size: 11px; color: var(--gray); font-weight: 500; }
+    .mrow-val  { font-size: 13px; font-weight: 700; color: var(--white); }
+    .mrow-val.gold   { color: var(--gold); }
+    .mrow-val.green  { color: var(--green); }
+    .mrow-val.blue   { color: var(--blue); }
+    .mrow-val.red    { color: var(--red-light); }
+
+    /* ─── PROGRESS BAR ─── */
+    .prog-wrap { margin-bottom: 16px; }
+    .prog-header { display: flex; justify-content: space-between; margin-bottom: 7px; }
+    .prog-name  { font-size: 11px; font-weight: 600; color: var(--gray-lt); }
+    .prog-value { font-size: 11px; font-weight: 700; color: var(--white); }
+    .prog-track { height: 9px; background: rgba(255,255,255,.06); border-radius: 5px; overflow: hidden; }
+    .prog-fill  { height: 100%; border-radius: 5px; }
+
+    /* ─── FUNNEL ─── */
+    .funnel { display: flex; flex-direction: column; gap: 10px; }
+    .funnel-row { display: flex; align-items: center; gap: 12px; }
+    .funnel-lbl { width: 110px; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--gray); text-align: right; font-weight: 600; }
+    .funnel-track { flex: 1; height: 40px; background: rgba(255,255,255,.04); border-radius: 6px; overflow: hidden; position: relative; }
+    .funnel-bar {
+      height: 100%; border-radius: 6px;
+      display: flex; align-items: center; padding-left: 14px;
+      font-size: 12px; font-weight: 700; color: rgba(255,255,255,.9);
+      min-width: 36px;
+    }
+    .funnel-num { width: 50px; font-size: 18px; font-weight: 800; text-align: right; color: var(--white); }
+
+    /* ─── HIGHLIGHT BOX ─── */
+    .hbox {
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 11px;
+      color: var(--gray);
+      line-height: 1.65;
+      margin-top: 16px;
+    }
+    .hbox strong { color: var(--gold-lt); }
+    .hbox.red    { background: rgba(201,27,27,.09); border-left: 3px solid var(--red); }
+    .hbox.gold   { background: rgba(200,148,58,.09); border-left: 3px solid var(--gold); }
+    .hbox.green  { background: rgba(39,174,96,.09); border-left: 3px solid var(--green); }
+    .hbox.blue   { background: rgba(41,128,185,.09); border-left: 3px solid var(--blue); }
+
+    /* ─── BIG NUMBER ─── */
+    .big-num { text-align: center; padding: 14px 0 20px; }
+    .big-num .sub  { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gray); margin-bottom: 8px; }
+    .big-num .val  { font-size: 46px; font-weight: 900; color: var(--white); line-height: 1; }
+    .big-num .desc { font-size: 11px; color: var(--gray); margin-top: 6px; }
+
+    /* ─── REPRES. BOX ─── */
+    .rep-box {
+      background: rgba(200,148,58,.10);
+      border: 1px solid rgba(200,148,58,.22);
+      border-radius: 10px;
+      padding: 18px;
+      text-align: center;
+      margin-top: 8px;
+    }
+    .rep-box .sub  { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
+    .rep-box .val  { font-size: 40px; font-weight: 900; color: var(--gold); }
+    .rep-box .desc { font-size: 10.5px; color: var(--gray); margin-top: 5px; }
+
+    /* ─── ROI CARDS ─── */
+    .roi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .roi-card {
+      border-radius: 12px;
+      padding: 28px 22px;
+      text-align: center;
+    }
+    .roi-card.v-red    { background: linear-gradient(135deg,rgba(201,27,27,.14),rgba(201,27,27,.06)); border: 1px solid rgba(201,27,27,.28); }
+    .roi-card.v-gold   { background: linear-gradient(135deg,rgba(200,148,58,.14),rgba(200,148,58,.06)); border: 1px solid rgba(200,148,58,.28); }
+    .roi-card.v-green  { background: linear-gradient(135deg,rgba(39,174,96,.12),rgba(39,174,96,.05)); border: 1px solid rgba(39,174,96,.25); }
+    .roi-card .sub  { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gray); margin-bottom: 10px; }
+    .roi-card .val  { font-size: 36px; font-weight: 900; line-height: 1; }
+    .roi-card.v-red   .val { color: var(--red-light); }
+    .roi-card.v-gold  .val { color: var(--gold); }
+    .roi-card.v-green .val { color: var(--green); }
+    .roi-card .desc { font-size: 10.5px; color: var(--gray); margin-top: 10px; line-height: 1.5; }
+
+    /* ─── INSIGHTS ─── */
+    .ins-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .ins {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 20px;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 8.5px; letter-spacing: 1.8px; text-transform: uppercase;
+      font-weight: 700; padding: 4px 11px; border-radius: 20px; margin-bottom: 12px;
+    }
+    .b-green  { background: rgba(39,174,96,.15); color: #2ECC71; }
+    .b-yellow { background: rgba(241,196,15,.15); color: #F1C40F; }
+    .b-blue   { background: rgba(41,128,185,.15); color: #5DADE2; }
+    .ins h4 { font-size: 12.5px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .ins p  { font-size: 11px; color: var(--gray); line-height: 1.65; }
+
+    /* ─── CHART CONTAINER ─── */
+    .chart-box { position: relative; height: 210px; }
+
+    /* ─── CTR INFO ─── */
+    .ctr-row { margin-bottom: 22px; }
+    .ctr-row .top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+    .ctr-plat { font-size: 12px; font-weight: 600; color: var(--gray-lt); }
+    .ctr-val  { font-size: 13px; font-weight: 800; color: var(--white); }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 22px 56px;
+      text-align: center;
+    }
+    .footer p { font-size: 10.5px; color: var(--gray); letter-spacing: .5px; }
+    .footer p + p { margin-top: 6px; }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<header class="header">
+  <div class="logo-wrap">
+    <img src="https://camargocoffee.com.br/wp-content/uploads/2024/09/Logo-Camargo.png"
+         alt="Camargo Coffee"
+         onerror="this.style.display='none'; document.getElementById('logo-txt').style.display='block';" />
+    <div id="logo-txt" style="display:none;">
+      <span style="font-size:26px;font-weight:900;letter-spacing:5px;color:#fff;">CAMARGO</span>
+      <span style="display:block;font-size:11px;letter-spacing:9px;color:#9B9189;margin-top:2px;">COFFEE</span>
+    </div>
+  </div>
+  <div class="report-meta">
+    <div class="report-label">Relatório de Performance Digital</div>
+    <div class="report-period">Maio 2025</div>
+    <div class="report-region">Cascavel · Toledo · Região</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ══ 1. RESUMO EXECUTIVO ══ -->
+  <div class="section-gap">
+    <div class="section-head">
+      <div class="dot"></div>
+      <h2>Resumo Executivo</h2>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi c-red">
+        <div class="kpi-lbl">Total Investido</div>
+        <div class="kpi-val">R$&nbsp;2.144<small>,41</small></div>
+        <div class="kpi-hint">Facebook + Google Ads<br>01 a 27/05/2025</div>
+      </div>
+      <div class="kpi c-gold">
+        <div class="kpi-lbl">Leads Gerados</div>
+        <div class="kpi-val">109</div>
+        <div class="kpi-hint">Via anúncios pagos<br>CPL: R$&nbsp;19,67</div>
+      </div>
+      <div class="kpi c-green">
+        <div class="kpi-lbl">Fechamentos</div>
+        <div class="kpi-val">3</div>
+        <div class="kpi-hint">Vendas confirmadas<br>atribuídas ao tráfego</div>
+      </div>
+      <div class="kpi c-blue">
+        <div class="kpi-lbl">Taxa de Conversão</div>
+        <div class="kpi-val">2,75<small>%</small></div>
+        <div class="kpi-hint">Leads → Fechamentos<br>sobre leads de anúncios</div>
+      </div>
+      <div class="kpi c-purple">
+        <div class="kpi-lbl">Impressões Totais</div>
+        <div class="kpi-val">89,8<small>K</small></div>
+        <div class="kpi-hint">Alcance combinado<br>FB + Google</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 2. MÍDIA PAGA ══ -->
+  <div class="section-gap">
+    <div class="section-head">
+      <div class="dot"></div>
+      <h2>Investimento em Mídia Paga — 01 a 27/05/2025</h2>
+    </div>
+    <div class="grid-2">
+
+      <!-- Facebook -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-icon ci-fb">📘</div>
+          <div class="card-head-text">
+            <h3>Facebook &amp; Instagram Ads</h3>
+            <p>Meta Ads — Alcance e Reconhecimento de Marca</p>
+          </div>
+        </div>
+        <div class="mrow"><span class="mrow-name">Investimento</span><span class="mrow-val gold">R$ 1.369,58</span></div>
+        <div class="mrow"><span class="mrow-name">Impressões</span><span class="mrow-val">88.819</span></div>
+        <div class="mrow"><span class="mrow-name">Cliques no Link</span><span class="mrow-val">531</span></div>
+        <div class="mrow"><span class="mrow-name">CTR — Taxa de Clique</span><span class="mrow-val blue">0,60%</span></div>
+        <div class="mrow"><span class="mrow-name">CPC — Custo por Clique</span><span class="mrow-val">R$ 2,58</span></div>
+        <div class="mrow"><span class="mrow-name">CPM — Custo por 1.000 Impressões</span><span class="mrow-val">R$ 15,42</span></div>
+        <div class="hbox gold">
+          💡 Facebook entrega <strong>grande volume de alcance</strong> a custo baixo por impressão (R$&nbsp;15,42 por mil). Ideal para gerar reconhecimento da marca na região.
+        </div>
+      </div>
+
+      <!-- Google -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-icon ci-gg">🔍</div>
+          <div class="card-head-text">
+            <h3>Google Ads</h3>
+            <p>Rede de Pesquisa — Alta Intenção de Compra</p>
+          </div>
+        </div>
+        <div class="mrow"><span class="mrow-name">Investimento</span><span class="mrow-val gold">R$ 774,83</span></div>
+        <div class="mrow"><span class="mrow-name">Impressões</span><span class="mrow-val">1.060</span></div>
+        <div class="mrow"><span class="mrow-name">Cliques no Link</span><span class="mrow-val">209</span></div>
+        <div class="mrow"><span class="mrow-name">CTR — Taxa de Clique</span><span class="mrow-val green">19,72%</span></div>
+        <div class="mrow"><span class="mrow-name">CPC — Custo por Clique</span><span class="mrow-val">R$ 3,71</span></div>
+        <div class="mrow"><span class="mrow-name">CPM — Custo por 1.000 Impressões</span><span class="mrow-val">R$ 730,97</span></div>
+        <div class="hbox green">
+          ✅ Google captura quem <strong>já está buscando</strong> por café. CTR de 19,72% é excelente — bem acima da média do setor (3–5%). Alta intenção = leads mais qualificados.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 3. GRÁFICOS ══ -->
+  <div class="section-gap">
+    <div class="section-head">
+      <div class="dot"></div>
+      <h2>Análise Visual das Plataformas</h2>
+    </div>
+    <div class="grid-3">
+
+      <!-- Donut Budget -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-head-text">
+            <h3>Distribuição do Budget</h3>
+            <p>Alocação entre plataformas</p>
+          </div>
+        </div>
+        <div class="chart-box">
+          <canvas id="chartBudget"></canvas>
+        </div>
+      </div>
+
+      <!-- Bar Cliques -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-head-text">
+            <h3>Cliques por Plataforma</h3>
+            <p>Total de cliques gerados</p>
+          </div>
+        </div>
+        <div class="chart-box">
+          <canvas id="chartClicks"></canvas>
+        </div>
+      </div>
+
+      <!-- CTR Comparison -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-head-text">
+            <h3>CTR Comparativo</h3>
+            <p>% de cliques por impressão</p>
+          </div>
+        </div>
+        <div style="padding-top: 10px;">
+          <div class="ctr-row">
+            <div class="top">
+              <span class="ctr-plat">📘 Facebook Ads</span>
+              <span class="ctr-val">0,60%</span>
+            </div>
+            <div class="prog-track">
+              <div class="prog-fill" style="width: 3.04%; background: #4267B2;"></div>
+            </div>
+          </div>
+          <div class="ctr-row">
+            <div class="top">
+              <span class="ctr-plat">🔍 Google Ads</span>
+              <span class="ctr-val">19,72%</span>
+            </div>
+            <div class="prog-track">
+              <div class="prog-fill" style="width: 100%; background: linear-gradient(90deg,#EA4335,#F47F72);"></div>
+            </div>
+          </div>
+          <div class="hbox red" style="margin-top: 20px;">
+            🎯 Google tem CTR <strong>32× maior</strong> que o Facebook. Isso confirma que a Camargo está capturando clientes no exato momento em que buscam pela solução.
+          </div>
+          <div style="text-align:center; margin-top: 18px;">
+            <span style="font-size:11px; color:var(--gray);">Média do setor (pesquisa)</span>
+            <div style="font-size:22px; font-weight:800; color:var(--gray); margin-top:4px;">3 – 5%</div>
+            <div style="font-size:10px; color:var(--green); margin-top:4px; letter-spacing:1px; font-weight:700;">▲ CAMARGO: 19,72%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 4. CRM — FUNIL + FINANCEIRO ══ -->
+  <div class="section-gap">
+    <div class="section-head">
+      <div class="dot"></div>
+      <h2>CRM &amp; Resultados — 01 a 19/05/2025</h2>
+    </div>
+    <div class="grid-2">
+
+      <!-- Funil -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-icon ci-crm">📊</div>
+          <div class="card-head-text">
+            <h3>Funil de Conversão</h3>
+            <p>Do clique ao fechamento</p>
+          </div>
+        </div>
+        <div class="funnel">
+          <div class="funnel-row">
+            <div class="funnel-lbl">Cliques</div>
+            <div class="funnel-track">
+              <div class="funnel-bar" style="width:100%; background:linear-gradient(90deg,#4267B2,#3b5998);">740 cliques</div>
+            </div>
+            <div class="funnel-num">740</div>
+          </div>
+          <div class="funnel-row">
+            <div class="funnel-lbl">Leads</div>
+            <div class="funnel-track">
+              <div class="funnel-bar" style="width:14.7%; background:linear-gradient(90deg,#C8943A,#a67c30);">109</div>
+            </div>
+            <div class="funnel-num">109</div>
+          </div>
+          <div class="funnel-row">
+            <div class="funnel-lbl">Fechamentos</div>
+            <div class="funnel-track">
+              <div class="funnel-bar" style="width:0.4%; background:linear-gradient(90deg,#27AE60,#1e8449);"></div>
+            </div>
+            <div class="funnel-num" style="color:var(--green);">3</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <div class="mrow">
+            <span class="mrow-name">Clique → Lead</span>
+            <span class="mrow-val gold">14,7%</span>
+          </div>
+          <div class="mrow">
+            <span class="mrow-name">Lead → Fechamento</span>
+            <span class="mrow-val blue">2,75%</span>
+          </div>
+          <div class="mrow">
+            <span class="mrow-name">Custo por Lead (CPL)</span>
+            <span class="mrow-val">R$ 19,67</span>
+          </div>
+          <div class="mrow">
+            <span class="mrow-name">Custo por Aquisição (CAC)</span>
+            <span class="mrow-val red">R$ 714,80</span>
+          </div>
+        </div>
+        <div class="hbox gold">
+          💡 <strong>14,7%</strong> dos cliques viram leads — excelente taxa de captura. O maior potencial de melhoria está no <strong>follow-up: 106 leads ainda não fecharam</strong>. Processo comercial mais rápido pode dobrar os resultados.
+        </div>
+      </div>
+
+      <!-- Financeiro CRM -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-icon ci-money">💰</div>
+          <div class="card-head-text">
+            <h3>Resultado Financeiro no CRM</h3>
+            <p>Origem das vendas — 01 a 19/05</p>
+          </div>
+        </div>
+
+        <div class="big-num">
+          <div class="sub">Total Fechado no CRM</div>
+          <div class="val">R$ 4.150,00</div>
+          <div class="desc">Todas as origens combinadas</div>
+        </div>
+
+        <div class="prog-wrap">
+          <div class="prog-header">
+            <span class="prog-name">🎯 Tráfego Pago (Anúncios)</span>
+            <span class="prog-value" style="color:var(--gold);">R$ 2.050,00</span>
+          </div>
+          <div class="prog-track" style="height:12px;">
+            <div class="prog-fill" style="width:49.4%; background:linear-gradient(90deg,var(--gold),var(--gold-lt));"></div>
+          </div>
+        </div>
+
+        <div class="prog-wrap">
+          <div class="prog-header">
+            <span class="prog-name">🤝 Outras Origens</span>
+            <span class="prog-value">R$ 2.100,00</span>
+          </div>
+          <div class="prog-track" style="height:12px;">
+            <div class="prog-fill" style="width:50.6%; background:rgba(255,255,255,.18);"></div>
+          </div>
+        </div>
+
+        <div class="rep-box">
+          <div class="sub">Representatividade do Tráfego Pago</div>
+          <div class="val">49,4%</div>
+          <div class="desc">Quase metade das vendas veio diretamente dos anúncios</div>
+        </div>
+
+        <div class="hbox green" style="margin-top:16px;">
+          ✅ Cada real investido em anúncios gerou <strong>R$ 0,96</strong> em retorno direto — e este número cresce com fechamentos de leads ainda em negociação. Período de CRM encerra em 19/05 (ads rodaram até 27/05).
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ 5. ROI ══ -->
+  <div class="section-gap">
+    <div class="section-head">
+      <div class="dot"></div>
+      <h2>Retorno sobre Investimento</h2>
+    </div>
+    <div class="roi-grid">
+      <div class="roi-card v-red">
+        <div class="sub">Total Investido em Ads</div>
+        <div class="val">R$ 2.144,41</div>
+        <div class="desc">Facebook + Google · 01 a 27/05<br>Custo para gerar 109 leads</div>
+      </div>
+      <div class="roi-card v-gold">
+        <div class="sub">Retorno via Tráfego (até 19/05)</div>
+        <div class="val">R$ 2.050,00</div>
+        <div class="desc">Vendas diretamente atribuídas<br>aos anúncios pagos</div>
+      </div>
+      <div class="roi-card v-green">
+        <div class="sub">Custo por Lead (CPL)</div>
+        <div class="val">R$ 19,67</div>
+        <div class="desc">Média de custo para gerar<br>cada lead qualificado</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <p>Relatório gerado para <strong>Camargo Coffee</strong> — Faz Parte da Sua Vida</p>
+  <p>Período: Maio 2025 · Cascavel, Toledo e Região · Dados: Facebook Ads, Google Ads e CRM Interno</p>
+</footer>
+
+<script>
+  // ── Budget Donut ──
+  new Chart(document.getElementById('chartBudget'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Facebook Ads', 'Google Ads'],
+      datasets: [{
+        data: [1369.58, 774.83],
+        backgroundColor: ['#4267B2', '#EA4335'],
+        borderColor: ['#1A1310', '#1A1310'],
+        borderWidth: 4,
+        hoverOffset: 6,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '66%',
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: {
+            color: '#9B9189',
+            font: { size: 10.5, family: 'Montserrat', weight: '600' },
+            padding: 14,
+            usePointStyle: true,
+          }
+        },
+        tooltip: {
+          callbacks: {
+            label: ctx => ` R$ ${ctx.parsed.toFixed(2).replace('.', ',')} (${((ctx.parsed / 2144.41)*100).toFixed(1)}%)`
+          }
+        }
+      }
+    }
+  });
+
+  // ── Clicks Bar ──
+  new Chart(document.getElementById('chartClicks'), {
+    type: 'bar',
+    data: {
+      labels: ['Facebook Ads', 'Google Ads'],
+      datasets: [{
+        label: 'Cliques',
+        data: [531, 209],
+        backgroundColor: ['rgba(66,103,178,.75)', 'rgba(234,67,53,.75)'],
+        borderColor: ['#4267B2', '#EA4335'],
+        borderWidth: 2,
+        borderRadius: 7,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: { label: ctx => ` ${ctx.parsed.y} cliques` }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          grid: { color: 'rgba(255,255,255,.05)' },
+          ticks: { color: '#9B9189', font: { size: 10, family: 'Montserrat' } }
+        },
+        x: {
+          grid: { display: false },
+          ticks: { color: '#9B9189', font: { size: 10.5, family: 'Montserrat', weight: '600' } }
+        }
+      }
+    }
+  });
+</script>
+</body>
+</html>
