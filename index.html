@@ -404,9 +404,9 @@
 
 <!-- TABS NAV -->
 <nav class="tab-nav">
-  <button class="tab-btn active" onclick="switchTab('abril')">Abril 2025</button>
+  <button class="tab-btn active" onclick="switchTab('cidades')">Cidades — Maio</button>
+  <button class="tab-btn" onclick="switchTab('abril')">Abril 2025</button>
   <button class="tab-btn" onclick="switchTab('maio')">Maio 2025</button>
-  <button class="tab-btn" onclick="switchTab('cidades')">Cidades — Maio</button>
 </nav>
 
 <div id="tab-maio" class="tab-content">
@@ -726,7 +726,7 @@
 </div><!-- /tab-maio -->
 
 <!-- ══════════════ TAB ABRIL ══════════════ -->
-<div id="tab-abril" class="tab-content active">
+<div id="tab-abril" class="tab-content">
 <div class="container">
 
   <!-- ══ 1. RESUMO EXECUTIVO ══ -->
@@ -1021,7 +1021,7 @@
 </div><!-- /tab-abril -->
 
 <!-- ══════════════ TAB CIDADES ══════════════ -->
-<div id="tab-cidades" class="tab-content">
+<div id="tab-cidades" class="tab-content active">
 <div class="container" style="max-width:1000px;">
 
   <!-- ══ TÍTULO ══ -->
@@ -1052,24 +1052,30 @@
       <!-- Números grandes -->
       <div style="display:grid; grid-template-columns: repeat(4,1fr); gap:0;">
         <div style="padding:28px 20px; text-align:center; border-right:1px solid rgba(255,255,255,.06);">
-          <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:10px;">Investido</div>
-          <div style="font-size:38px; font-weight:900; color:var(--white); line-height:1;">R$&nbsp;2.228</div>
-          <div style="font-size:11px; color:var(--gray); margin-top:6px;">FB R$1.415 + Google R$812</div>
+          <div style="display:flex; align-items:center; justify-content:center; gap:6px; margin-bottom:10px;">
+            <span style="font-size:16px;">📘</span>
+            <span style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#7B9FE0; font-weight:700;">Facebook Ads</span>
+          </div>
+          <div style="font-size:42px; font-weight:900; color:var(--white); line-height:1;">R$&nbsp;1.415</div>
+          <div style="font-size:11px; color:var(--gray); margin-top:6px;">investido no mês</div>
+        </div>
+        <div style="padding:28px 20px; text-align:center; border-right:1px solid rgba(255,255,255,.06);">
+          <div style="display:flex; align-items:center; justify-content:center; gap:6px; margin-bottom:10px;">
+            <span style="font-size:16px;">🔍</span>
+            <span style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#F47F72; font-weight:700;">Google Ads</span>
+          </div>
+          <div style="font-size:42px; font-weight:900; color:var(--white); line-height:1;">R$&nbsp;812</div>
+          <div style="font-size:11px; color:var(--gray); margin-top:6px;">investido no mês</div>
         </div>
         <div style="padding:28px 20px; text-align:center; border-right:1px solid rgba(255,255,255,.06);">
           <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:10px;">Leads Gerados</div>
           <div style="font-size:64px; font-weight:900; color:var(--gold); line-height:1;">109</div>
           <div style="font-size:11px; color:var(--gray); margin-top:6px;">CPL: R$ 20,44</div>
         </div>
-        <div style="padding:28px 20px; text-align:center; border-right:1px solid rgba(255,255,255,.06);">
+        <div style="padding:28px 20px; text-align:center;">
           <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:10px;">Em Vendas</div>
           <div style="font-size:38px; font-weight:900; color:var(--green); line-height:1;">R$&nbsp;2.290</div>
-          <div style="font-size:11px; color:var(--green); margin-top:6px; font-weight:700;">R$ 1,03 por real investido</div>
-        </div>
-        <div style="padding:28px 20px; text-align:center;">
-          <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:10px;">Média Diária</div>
-          <div style="font-size:42px; font-weight:900; color:var(--white); line-height:1;">R$&nbsp;82</div>
-          <div style="font-size:11px; color:var(--gray); margin-top:6px;">por dia no mês</div>
+          <div style="font-size:11px; color:var(--green); margin-top:6px; font-weight:700;">R$ 1,03 retorno/real</div>
         </div>
       </div>
     </div>
@@ -1094,24 +1100,30 @@
       <!-- Números grandes -->
       <div style="display:grid; grid-template-columns: repeat(4,1fr); gap:0;">
         <div style="padding:28px 20px; text-align:center; border-right:1px solid rgba(255,255,255,.06);">
-          <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:10px;">Investido</div>
-          <div style="font-size:38px; font-weight:900; color:var(--white); line-height:1;">R$&nbsp;644</div>
-          <div style="font-size:11px; color:var(--gray); margin-top:6px;">FB R$612 + Google R$32</div>
+          <div style="display:flex; align-items:center; justify-content:center; gap:6px; margin-bottom:10px;">
+            <span style="font-size:16px;">📘</span>
+            <span style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#7B9FE0; font-weight:700;">Facebook Ads</span>
+          </div>
+          <div style="font-size:42px; font-weight:900; color:var(--white); line-height:1;">R$&nbsp;612</div>
+          <div style="font-size:11px; color:var(--gray); margin-top:6px;">investido no mês</div>
+        </div>
+        <div style="padding:28px 20px; text-align:center; border-right:1px solid rgba(255,255,255,.06);">
+          <div style="display:flex; align-items:center; justify-content:center; gap:6px; margin-bottom:10px;">
+            <span style="font-size:16px;">🔍</span>
+            <span style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#F47F72; font-weight:700;">Google Ads</span>
+          </div>
+          <div style="font-size:42px; font-weight:900; color:var(--white); line-height:1;">R$&nbsp;32</div>
+          <div style="font-size:11px; color:var(--gray); margin-top:6px;">investido no mês</div>
         </div>
         <div style="padding:28px 20px; text-align:center; border-right:1px solid rgba(255,255,255,.06);">
           <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:10px;">Leads Gerados</div>
           <div style="font-size:64px; font-weight:900; color:#5DADE2; line-height:1;">25</div>
           <div style="font-size:11px; color:var(--gray); margin-top:6px;">CPL: R$ 25,78</div>
         </div>
-        <div style="padding:28px 20px; text-align:center; border-right:1px solid rgba(255,255,255,.06);">
-          <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:10px;">Em Vendas</div>
-          <div style="font-size:32px; font-weight:900; color:var(--gray); line-height:1; padding-top:8px;">Em apuração</div>
-          <div style="font-size:11px; color:var(--gray); margin-top:6px;">1º mês completo na praça</div>
-        </div>
         <div style="padding:28px 20px; text-align:center;">
-          <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:10px;">Média Diária</div>
-          <div style="font-size:42px; font-weight:900; color:var(--white); line-height:1;">R$&nbsp;24</div>
-          <div style="font-size:11px; color:var(--gray); margin-top:6px;">por dia no mês</div>
+          <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:10px;">Em Vendas</div>
+          <div style="font-size:26px; font-weight:900; color:var(--gray); line-height:1; padding-top:10px;">Em apuração</div>
+          <div style="font-size:11px; color:var(--gray); margin-top:8px;">1º mês na praça</div>
         </div>
       </div>
     </div>
