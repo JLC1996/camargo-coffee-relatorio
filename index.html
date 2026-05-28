@@ -332,9 +332,10 @@
       .roi-grid,
       .ins-grid { grid-template-columns: 1fr; gap: 14px; }
 
-      /* Evolução de vendas no mobile */
-      [style*="grid-template-columns:1fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
-      [style*="grid-template-columns: 1fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
+      /* Cidades: números grandes em coluna no mobile */
+      [style*="grid-template-columns: repeat(4,1fr)"] { grid-template-columns: 1fr 1fr !important; }
+      [style*="grid-template-columns:1fr auto 1fr auto 1fr"] { grid-template-columns: 1fr !important; }
+      [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
 
       /* Cards */
       .card { padding: 18px 16px; }
@@ -1021,167 +1022,206 @@
 
 <!-- ══════════════ TAB CIDADES ══════════════ -->
 <div id="tab-cidades" class="tab-content">
-<div class="container">
+<div class="container" style="max-width:1000px;">
 
-  <!-- ══ INTRO DIDÁTICO ══ -->
+  <!-- ══ TÍTULO ══ -->
   <div class="section-gap">
-    <div class="section-head">
-      <div class="dot"></div>
-      <h2>Distribuição por Cidade — Maio 2025</h2>
-    </div>
-    <div style="background:var(--card); border:1px solid var(--border); border-radius:12px; padding:26px; margin-bottom:0;">
-      <div style="display:flex; align-items:flex-start; gap:14px;">
-        <div style="font-size:28px; flex-shrink:0;">📍</div>
-        <div>
-          <div style="font-size:14px; font-weight:700; color:var(--white); margin-bottom:8px;">Como o investimento está dividido?</div>
-          <div style="font-size:12px; color:var(--gray); line-height:1.8;">
-            Os anúncios de Maio foram segmentados em <strong style="color:var(--gold-lt);">2 regiões distintas</strong>: <strong style="color:var(--white);">Cascavel e Região</strong> — mercado principal com histórico de vendas — e <strong style="color:var(--white);">Primavera do Leste</strong> — nova praça em fase de testes e construção de presença. Cada região recebe uma verba proporcional ao seu estágio e potencial de conversão.
-          </div>
-        </div>
-      </div>
+    <div style="text-align:center; padding: 16px 0 8px;">
+      <div style="font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--red); font-weight:700; margin-bottom:10px;">Maio 2025</div>
+      <div style="font-size:28px; font-weight:900; color:var(--white); margin-bottom:10px;">Investimento por Cidade</div>
+      <div style="font-size:13px; color:var(--gray); max-width:560px; margin:0 auto; line-height:1.7;">Os anúncios foram divididos em <strong style="color:var(--white);">2 regiões</strong>: Cascavel (mercado principal) e Primavera do Leste (nova expansão), cada uma com verba proporcional ao seu estágio.</div>
     </div>
   </div>
 
-  <!-- ══ CARDS DAS CIDADES ══ -->
+  <!-- ══ CIDADE 1: CASCAVEL ══ -->
   <div class="section-gap">
-    <div class="section-head">
-      <div class="dot"></div>
-      <h2>Investimento por Cidade</h2>
-    </div>
-    <div class="grid-2">
+    <div style="background:linear-gradient(135deg, rgba(201,27,27,.12) 0%, rgba(201,27,27,.04) 100%); border:1px solid rgba(201,27,27,.30); border-radius:16px; overflow:hidden;">
 
-      <!-- Cascavel -->
-      <div class="card" style="border-color: rgba(201,27,27,.30);">
-        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
-          <div style="width:42px; height:42px; background:rgba(201,27,27,.18); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0;">🏙️</div>
+      <!-- Header cidade -->
+      <div style="padding:24px 28px 20px; border-bottom:1px solid rgba(201,27,27,.20); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:48px; height:48px; background:var(--red); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;">🏙️</div>
           <div>
-            <div style="font-size:15px; font-weight:800; color:var(--white);">Cascavel e Região</div>
-            <div style="font-size:10px; color:var(--gray); margin-top:2px; letter-spacing:1px;">MERCADO PRINCIPAL</div>
+            <div style="font-size:20px; font-weight:900; color:var(--white); letter-spacing:.5px;">Cascavel e Região</div>
+            <div style="font-size:10px; color:var(--gray); letter-spacing:2.5px; text-transform:uppercase; margin-top:2px;">Mercado Principal</div>
           </div>
-          <div style="margin-left:auto; background:rgba(201,27,27,.15); border:1px solid rgba(201,27,27,.3); border-radius:20px; padding:4px 12px; font-size:9px; font-weight:700; color:var(--red-light); letter-spacing:1.5px; text-transform:uppercase;">Principal</div>
         </div>
-        <div class="mrow"><span class="mrow-name">Facebook &amp; Instagram Ads</span><span class="mrow-val gold">R$ 1.415,54</span></div>
-        <div class="mrow"><span class="mrow-name">Google Ads</span><span class="mrow-val gold">R$ 812,82</span></div>
-        <div class="mrow"><span class="mrow-name">Total Investido</span><span class="mrow-val">R$ 2.228,36</span></div>
-        <div class="mrow"><span class="mrow-name">Leads Gerados</span><span class="mrow-val">109</span></div>
-        <div class="mrow"><span class="mrow-name">Custo por Lead (CPL)</span><span class="mrow-val blue">R$ 20,44</span></div>
-        <div class="mrow"><span class="mrow-name">Total em Vendas</span><span class="mrow-val green">R$ 2.290,00</span></div>
-        <div class="mrow"><span class="mrow-name">Média Diária Investida</span><span class="mrow-val">~R$ 82,53 / dia</span></div>
-        <div class="hbox green">
-          ✅ Cascavel é a praça com <strong>melhor retorno comprovado</strong>. Os R$ 2.228 investidos geraram R$ 2.290 em vendas — retorno de R$ 1,03 por real aplicado.
-        </div>
+        <div style="background:rgba(201,27,27,.18); border:1px solid rgba(201,27,27,.35); border-radius:24px; padding:6px 16px; font-size:11px; font-weight:700; color:var(--red-light); letter-spacing:1px; text-transform:uppercase;">✅ Retorno Comprovado</div>
       </div>
 
-      <!-- Primavera -->
-      <div class="card" style="border-color: rgba(41,128,185,.25);">
-        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
-          <div style="width:42px; height:42px; background:rgba(41,128,185,.18); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0;">🌱</div>
+      <!-- Números grandes -->
+      <div style="display:grid; grid-template-columns: repeat(4,1fr); gap:0;">
+        <div style="padding:28px 20px; text-align:center; border-right:1px solid rgba(255,255,255,.06);">
+          <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:10px;">Investido</div>
+          <div style="font-size:38px; font-weight:900; color:var(--white); line-height:1;">R$&nbsp;2.228</div>
+          <div style="font-size:11px; color:var(--gray); margin-top:6px;">FB R$1.415 + Google R$812</div>
+        </div>
+        <div style="padding:28px 20px; text-align:center; border-right:1px solid rgba(255,255,255,.06);">
+          <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:10px;">Leads Gerados</div>
+          <div style="font-size:64px; font-weight:900; color:var(--gold); line-height:1;">109</div>
+          <div style="font-size:11px; color:var(--gray); margin-top:6px;">CPL: R$ 20,44</div>
+        </div>
+        <div style="padding:28px 20px; text-align:center; border-right:1px solid rgba(255,255,255,.06);">
+          <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:10px;">Em Vendas</div>
+          <div style="font-size:38px; font-weight:900; color:var(--green); line-height:1;">R$&nbsp;2.290</div>
+          <div style="font-size:11px; color:var(--green); margin-top:6px; font-weight:700;">R$ 1,03 por real investido</div>
+        </div>
+        <div style="padding:28px 20px; text-align:center;">
+          <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:10px;">Média Diária</div>
+          <div style="font-size:42px; font-weight:900; color:var(--white); line-height:1;">R$&nbsp;82</div>
+          <div style="font-size:11px; color:var(--gray); margin-top:6px;">por dia no mês</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ CIDADE 2: PRIMAVERA ══ -->
+  <div class="section-gap">
+    <div style="background:linear-gradient(135deg, rgba(41,128,185,.10) 0%, rgba(41,128,185,.03) 100%); border:1px solid rgba(41,128,185,.28); border-radius:16px; overflow:hidden;">
+
+      <!-- Header cidade -->
+      <div style="padding:24px 28px 20px; border-bottom:1px solid rgba(41,128,185,.18); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+        <div style="display:flex; align-items:center; gap:14px;">
+          <div style="width:48px; height:48px; background:rgba(41,128,185,.35); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0;">🌱</div>
           <div>
-            <div style="font-size:15px; font-weight:800; color:var(--white);">Primavera do Leste</div>
-            <div style="font-size:10px; color:var(--gray); margin-top:2px; letter-spacing:1px;">NOVA PRAÇA</div>
+            <div style="font-size:20px; font-weight:900; color:var(--white); letter-spacing:.5px;">Primavera do Leste</div>
+            <div style="font-size:10px; color:var(--gray); letter-spacing:2.5px; text-transform:uppercase; margin-top:2px;">Nova Praça — Expansão</div>
           </div>
-          <div style="margin-left:auto; background:rgba(41,128,185,.15); border:1px solid rgba(41,128,185,.3); border-radius:20px; padding:4px 12px; font-size:9px; font-weight:700; color:#5DADE2; letter-spacing:1.5px; text-transform:uppercase;">Expansão</div>
         </div>
-        <div class="mrow"><span class="mrow-name">Facebook &amp; Instagram Ads</span><span class="mrow-val gold">R$ 612,23</span></div>
-        <div class="mrow"><span class="mrow-name">Google Ads</span><span class="mrow-val gold">R$ 32,33</span></div>
-        <div class="mrow"><span class="mrow-name">Total Investido</span><span class="mrow-val">R$ 644,56</span></div>
-        <div class="mrow"><span class="mrow-name">Leads Gerados</span><span class="mrow-val">25</span></div>
-        <div class="mrow"><span class="mrow-name">Custo por Lead (CPL)</span><span class="mrow-val blue">R$ 25,78</span></div>
-        <div class="mrow"><span class="mrow-name">Total em Vendas</span><span class="mrow-val" style="color:var(--gray);">Em apuração</span></div>
-        <div class="mrow"><span class="mrow-name">Média Diária Investida</span><span class="mrow-val">~R$ 23,87 / dia</span></div>
-        <div class="hbox blue">
-          📊 Primavera está em <strong>fase de mapeamento de mercado</strong>. 25 leads gerados no primeiro mês completo — dados de vendas sendo consolidados.
+        <div style="background:rgba(41,128,185,.15); border:1px solid rgba(41,128,185,.35); border-radius:24px; padding:6px 16px; font-size:11px; font-weight:700; color:#5DADE2; letter-spacing:1px; text-transform:uppercase;">📊 Dados em Apuração</div>
+      </div>
+
+      <!-- Números grandes -->
+      <div style="display:grid; grid-template-columns: repeat(4,1fr); gap:0;">
+        <div style="padding:28px 20px; text-align:center; border-right:1px solid rgba(255,255,255,.06);">
+          <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:10px;">Investido</div>
+          <div style="font-size:38px; font-weight:900; color:var(--white); line-height:1;">R$&nbsp;644</div>
+          <div style="font-size:11px; color:var(--gray); margin-top:6px;">FB R$612 + Google R$32</div>
+        </div>
+        <div style="padding:28px 20px; text-align:center; border-right:1px solid rgba(255,255,255,.06);">
+          <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:10px;">Leads Gerados</div>
+          <div style="font-size:64px; font-weight:900; color:#5DADE2; line-height:1;">25</div>
+          <div style="font-size:11px; color:var(--gray); margin-top:6px;">CPL: R$ 25,78</div>
+        </div>
+        <div style="padding:28px 20px; text-align:center; border-right:1px solid rgba(255,255,255,.06);">
+          <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:10px;">Em Vendas</div>
+          <div style="font-size:32px; font-weight:900; color:var(--gray); line-height:1; padding-top:8px;">Em apuração</div>
+          <div style="font-size:11px; color:var(--gray); margin-top:6px;">1º mês completo na praça</div>
+        </div>
+        <div style="padding:28px 20px; text-align:center;">
+          <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:10px;">Média Diária</div>
+          <div style="font-size:42px; font-weight:900; color:var(--white); line-height:1;">R$&nbsp;24</div>
+          <div style="font-size:11px; color:var(--gray); margin-top:6px;">por dia no mês</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ══ CONSOLIDADO ══ -->
+  <!-- ══ EVOLUÇÃO DE VENDAS ══ -->
   <div class="section-gap">
-    <div class="section-head">
-      <div class="dot"></div>
-      <h2>Consolidado — Todas as Cidades</h2>
-    </div>
-    <div class="roi-grid">
-      <div class="roi-card v-red">
-        <div class="sub">Total Investido (ambas)</div>
-        <div class="val">R$ 2.872,92</div>
-        <div class="desc">Cascavel + Primavera<br>Maio 2025</div>
+    <div class="section-head"><div class="dot"></div><h2>Por que estamos escalando o investimento?</h2></div>
+
+    <div style="background:var(--card); border:1px solid var(--border); border-radius:16px; padding:32px 28px;">
+      <div style="text-align:center; margin-bottom:32px;">
+        <div style="font-size:13px; color:var(--gray); line-height:1.8; max-width:680px; margin:0 auto;">
+          Nos primeiros meses, o foco foi <strong style="color:var(--white);">estruturar a máquina de vendas</strong> — testar criativos, calibrar o público e alinhar o processo comercial. Com a estrutura pronta, os resultados falaram por si:
+        </div>
       </div>
-      <div class="roi-card v-gold">
-        <div class="sub">Total de Leads</div>
-        <div class="val" style="font-size:42px;">134</div>
-        <div class="desc">109 Cascavel + 25 Primavera<br>CPL médio: R$ 21,44</div>
+
+      <!-- Linha do tempo visual -->
+      <div style="display:grid; grid-template-columns:1fr auto 1fr auto 1fr; align-items:center; gap:0; margin-bottom:32px;">
+
+        <!-- Abril -->
+        <div style="background:rgba(0,0,0,.3); border-radius:14px; padding:28px 20px; text-align:center;">
+          <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gray); margin-bottom:14px;">Abril 2025</div>
+          <div style="font-size:80px; font-weight:900; color:var(--white); line-height:1;">2</div>
+          <div style="font-size:13px; color:var(--gray); margin-top:10px; font-weight:600;">vendas fechadas</div>
+          <div style="margin-top:12px; font-size:11px; color:var(--gray); background:rgba(255,255,255,.05); border-radius:8px; padding:8px 12px; line-height:1.5;">Estruturando a<br>máquina de vendas</div>
+        </div>
+
+        <!-- Seta -->
+        <div style="padding:0 16px; text-align:center;">
+          <div style="font-size:28px; color:var(--green); font-weight:900;">→</div>
+        </div>
+
+        <!-- Maio -->
+        <div style="background:linear-gradient(135deg, rgba(39,174,96,.15), rgba(39,174,96,.05)); border:2px solid rgba(39,174,96,.35); border-radius:14px; padding:28px 20px; text-align:center; position:relative;">
+          <div style="position:absolute; top:-13px; left:50%; transform:translateX(-50%); background:var(--green); color:#000; font-size:9px; font-weight:900; letter-spacing:2px; padding:4px 14px; border-radius:20px; text-transform:uppercase; white-space:nowrap;">▲ +200%</div>
+          <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--green); margin-bottom:14px; margin-top:6px;">Maio 2025</div>
+          <div style="font-size:80px; font-weight:900; color:var(--green); line-height:1;">6</div>
+          <div style="font-size:13px; color:var(--gray); margin-top:10px; font-weight:600;">vendas fechadas</div>
+          <div style="margin-top:12px; font-size:11px; color:var(--green); background:rgba(39,174,96,.1); border-radius:8px; padding:8px 12px; line-height:1.5; font-weight:700;">Máquina de vendas<br>funcionando</div>
+        </div>
+
+        <!-- Seta -->
+        <div style="padding:0 16px; text-align:center;">
+          <div style="font-size:28px; color:var(--gold); font-weight:900;">→</div>
+        </div>
+
+        <!-- Junho -->
+        <div style="background:linear-gradient(135deg, rgba(200,148,58,.15), rgba(200,148,58,.05)); border:2px dashed rgba(200,148,58,.40); border-radius:14px; padding:28px 20px; text-align:center;">
+          <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:14px;">Junho 2025</div>
+          <div style="font-size:80px; font-weight:900; color:var(--gold); line-height:1;">🚀</div>
+          <div style="font-size:13px; color:var(--gray); margin-top:10px; font-weight:600;">Meta em construção</div>
+          <div style="margin-top:12px; font-size:11px; color:var(--gold); background:rgba(200,148,58,.1); border-radius:8px; padding:8px 12px; line-height:1.5; font-weight:700;">Escalando para<br>R$ 3.500/mês</div>
+        </div>
       </div>
-      <div class="roi-card v-green">
-        <div class="sub">Média Diária Atual</div>
-        <div class="val" style="font-size:36px;">~R$ 106</div>
-        <div class="desc">Por dia em todas as cidades<br>combinadas no período</div>
+
+      <div style="background:rgba(39,174,96,.07); border:1px solid rgba(39,174,96,.20); border-radius:10px; padding:18px 22px; text-align:center;">
+        <div style="font-size:13px; color:var(--gray-lt); line-height:1.8;">A máquina está funcionando. <strong style="color:var(--white);">+4 vendas em relação ao mês anterior</strong> com o mesmo investimento. Agora é o momento certo de <strong style="color:var(--green);">escalar a verba e multiplicar os resultados.</strong></div>
       </div>
     </div>
   </div>
 
-  <!-- ══ PROPOSTA ESCALONAMENTO ══ -->
+  <!-- ══ PROPOSTA JUNHO ══ -->
   <div class="section-gap">
-    <div class="section-head">
-      <div class="dot"></div>
-      <h2>Proposta de Escalonamento — Junho 2025</h2>
-    </div>
+    <div class="section-head"><div class="dot"></div><h2>Proposta de Investimento — Junho 2025</h2></div>
 
-    <!-- Por que escalar -->
-    <div style="background: linear-gradient(135deg, rgba(200,148,58,.10) 0%, rgba(201,27,27,.07) 100%); border:1px solid rgba(200,148,58,.25); border-radius:12px; padding:28px; margin-bottom:20px;">
-      <div style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:16px;">💡 Por que estamos aumentando o investimento?</div>
-      <div style="font-size:13px; color:var(--gray-lt); line-height:1.9; margin-bottom:20px;">
-        Nos primeiros meses de campanha, o trabalho principal foi <strong style="color:var(--white);">estruturar a máquina de vendas</strong> — testar criativos, calibrar segmentações, entender o comportamento do público e alinhar o processo comercial. Esse trabalho de base produziu resultados crescentes:
-      </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
 
-      <!-- Evolução de vendas -->
-      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-bottom:20px;">
-        <div style="background:rgba(0,0,0,.25); border-radius:10px; padding:18px; text-align:center;">
-          <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:8px;">Abril 2025</div>
-          <div style="font-size:36px; font-weight:900; color:var(--white); line-height:1;">2</div>
-          <div style="font-size:11px; color:var(--gray); margin-top:6px;">vendas fechadas</div>
-          <div style="font-size:10px; color:var(--gray); margin-top:4px;">Estruturação inicial</div>
-        </div>
-        <div style="background:rgba(0,0,0,.25); border-radius:10px; padding:18px; text-align:center;">
-          <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:8px;">Maio 2025</div>
-          <div style="font-size:36px; font-weight:900; color:var(--green); line-height:1;">6</div>
-          <div style="font-size:11px; color:var(--gray); margin-top:6px;">vendas fechadas</div>
-          <div style="font-size:10px; color:var(--green); margin-top:4px; font-weight:700;">▲ +200% de crescimento</div>
-        </div>
-        <div style="background:rgba(200,148,58,.12); border:1px solid rgba(200,148,58,.25); border-radius:10px; padding:18px; text-align:center;">
-          <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:8px;">Junho 2025</div>
-          <div style="font-size:36px; font-weight:900; color:var(--gold); line-height:1;">?</div>
-          <div style="font-size:11px; color:var(--gray); margin-top:6px;">meta em construção</div>
-          <div style="font-size:10px; color:var(--gold); margin-top:4px; font-weight:700;">Escalando a verba</div>
+      <!-- Atual -->
+      <div style="background:var(--card); border:1px solid var(--border); border-radius:16px; padding:30px; text-align:center;">
+        <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gray); font-weight:700; margin-bottom:20px;">Cenário Atual — Maio</div>
+        <div style="font-size:52px; font-weight:900; color:var(--white); line-height:1; margin-bottom:6px;">R$&nbsp;2.872</div>
+        <div style="font-size:12px; color:var(--gray); margin-bottom:24px;">/mês investido</div>
+        <div style="border-top:1px solid var(--border2); padding-top:20px; display:flex; flex-direction:column; gap:12px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:12px; color:var(--gray);">Média diária</span>
+            <span style="font-size:15px; font-weight:700; color:var(--white);">~R$ 106 / dia</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:12px; color:var(--gray);">Leads/mês</span>
+            <span style="font-size:15px; font-weight:700; color:var(--gold);">134 leads</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:12px; color:var(--gray);">Vendas fechadas</span>
+            <span style="font-size:15px; font-weight:700; color:var(--green);">6 vendas</span>
+          </div>
         </div>
       </div>
 
-      <div style="font-size:12px; color:var(--gray); line-height:1.8; border-top:1px solid var(--border); padding-top:16px;">
-        A máquina está funcionando. Com <strong style="color:var(--gold-lt);">+4 vendas em relação ao mês anterior</strong> usando praticamente o mesmo investimento, o próximo passo lógico é <strong style="color:var(--white);">aumentar o volume de combustível</strong> — mais verba, mais leads, mais conversões.
-      </div>
-    </div>
-
-    <!-- Meta Junho -->
-    <div class="grid-2">
-      <div style="background:var(--card); border:1px solid var(--border); border-radius:12px; padding:26px;">
-        <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gray); font-weight:700; margin-bottom:18px;">Cenário Atual — Maio</div>
-        <div class="mrow"><span class="mrow-name">Verba Total Mensal</span><span class="mrow-val">~R$ 2.872,92</span></div>
-        <div class="mrow"><span class="mrow-name">Média Diária</span><span class="mrow-val">~R$ 106 / dia</span></div>
-        <div class="mrow"><span class="mrow-name">Leads Gerados</span><span class="mrow-val">134</span></div>
-        <div class="mrow"><span class="mrow-name">Vendas Fechadas</span><span class="mrow-val green">6</span></div>
-        <div class="mrow"><span class="mrow-name">Retorno em Vendas</span><span class="mrow-val gold">R$ 2.290,00</span></div>
-      </div>
-
-      <div style="background: linear-gradient(135deg, rgba(200,148,58,.12), rgba(39,174,96,.08)); border:1px solid rgba(200,148,58,.30); border-radius:12px; padding:26px;">
-        <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:18px;">🎯 Proposta — Junho</div>
-        <div class="mrow"><span class="mrow-name">Verba Total Mensal</span><span class="mrow-val gold">R$ 3.500,00</span></div>
-        <div class="mrow"><span class="mrow-name">Média Diária</span><span class="mrow-val gold">~R$ 120 / dia</span></div>
-        <div class="mrow"><span class="mrow-name">Leads Estimados</span><span class="mrow-val">~163 leads</span></div>
-        <div class="mrow"><span class="mrow-name">Crescimento da Verba</span><span class="mrow-val green">+21,8%</span></div>
-        <div class="mrow"><span class="mrow-name">Potencial de Vendas</span><span class="mrow-val green">↑ Projeção em alta</span></div>
-        <div class="hbox gold">
-          🚀 Com a estrutura de vendas consolidada, aumentar <strong>R$ 627/mês</strong> representa um investimento estratégico de baixo risco e alto potencial de retorno.
+      <!-- Proposta -->
+      <div style="background:linear-gradient(135deg, rgba(200,148,58,.14), rgba(39,174,96,.08)); border:2px solid rgba(200,148,58,.35); border-radius:16px; padding:30px; text-align:center; position:relative; overflow:hidden;">
+        <div style="position:absolute; top:0; right:0; background:var(--gold); color:#000; font-size:9px; font-weight:900; letter-spacing:2px; padding:6px 18px; border-radius:0 14px 0 10px; text-transform:uppercase;">Proposta</div>
+        <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:20px;">🎯 Junho 2025</div>
+        <div style="font-size:52px; font-weight:900; color:var(--gold); line-height:1; margin-bottom:6px;">R$&nbsp;3.500</div>
+        <div style="font-size:12px; color:var(--gray); margin-bottom:24px;">/mês investido</div>
+        <div style="border-top:1px solid rgba(200,148,58,.2); padding-top:20px; display:flex; flex-direction:column; gap:12px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:12px; color:var(--gray);">Média diária</span>
+            <span style="font-size:15px; font-weight:700; color:var(--gold);">~R$ 120 / dia</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:12px; color:var(--gray);">Crescimento da verba</span>
+            <span style="font-size:15px; font-weight:700; color:var(--green);">+21,8%</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:12px; color:var(--gray);">Leads estimados</span>
+            <span style="font-size:15px; font-weight:700; color:var(--gold);">~163 leads</span>
+          </div>
+        </div>
+        <div style="margin-top:20px; background:rgba(200,148,58,.12); border-radius:8px; padding:12px 16px; font-size:11.5px; color:var(--gray-lt); line-height:1.6;">
+          🚀 <strong style="color:var(--gold);">+R$ 627/mês</strong> de aumento para uma estrutura que já comprovou resultado.
         </div>
       </div>
     </div>
