@@ -717,11 +717,11 @@
 <div id="tab-abril" class="tab-content">
 <div class="container">
 
-  <!-- KPIs ABRIL -->
+  <!-- ══ 1. RESUMO EXECUTIVO ══ -->
   <div class="section-gap">
     <div class="section-head">
       <div class="dot"></div>
-      <h2>Resumo Executivo — Abril 2025</h2>
+      <h2>Resumo Executivo</h2>
     </div>
     <div class="kpi-grid">
       <div class="kpi c-red">
@@ -730,29 +730,29 @@
         <div class="kpi-hint">Facebook + Google Ads<br>Abril 2025</div>
       </div>
       <div class="kpi c-gold">
-        <div class="kpi-lbl">Conversas (Meta)</div>
-        <div class="kpi-val">48</div>
-        <div class="kpi-hint">Iniciadas via anúncios<br>Custo: R$ 22,28 / conv.</div>
-      </div>
-      <div class="kpi c-blue">
-        <div class="kpi-lbl">Conversões (Google)</div>
-        <div class="kpi-val">35</div>
-        <div class="kpi-hint">Via rede de pesquisa<br>Custo: R$ 30,18 / conv.</div>
+        <div class="kpi-lbl">Interações Totais</div>
+        <div class="kpi-val">83</div>
+        <div class="kpi-hint">48 conversas + 35 conversões<br>Custo: R$ 25,61 / interação</div>
       </div>
       <div class="kpi c-green">
         <div class="kpi-lbl">Fechamentos</div>
         <div class="kpi-val">2</div>
-        <div class="kpi-hint">Vendas confirmadas<br>CAC: R$ 1.062,97</div>
+        <div class="kpi-hint">Vendas confirmadas<br>atribuídas ao tráfego</div>
+      </div>
+      <div class="kpi c-blue">
+        <div class="kpi-lbl">Taxa de Conversão</div>
+        <div class="kpi-val">2,41<small>%</small></div>
+        <div class="kpi-hint">Interações → Fechamentos<br>sobre ações geradas</div>
       </div>
       <div class="kpi c-purple">
-        <div class="kpi-lbl">Valor em Vendas</div>
-        <div class="kpi-val">R$&nbsp;790<small>,00</small></div>
-        <div class="kpi-hint">Receita gerada<br>via tráfego pago</div>
+        <div class="kpi-lbl">Impressões Totais</div>
+        <div class="kpi-val">63,8<small>K</small></div>
+        <div class="kpi-hint">Alcance combinado<br>FB + Google</div>
       </div>
     </div>
   </div>
 
-  <!-- MÍDIA PAGA ABRIL -->
+  <!-- ══ 2. MÍDIA PAGA ══ -->
   <div class="section-gap">
     <div class="section-head">
       <div class="dot"></div>
@@ -772,8 +772,9 @@
         <div class="mrow"><span class="mrow-name">Investimento</span><span class="mrow-val gold">R$ 1.069,61</span></div>
         <div class="mrow"><span class="mrow-name">Impressões</span><span class="mrow-val">62.994</span></div>
         <div class="mrow"><span class="mrow-name">Conversas Iniciadas</span><span class="mrow-val">48</span></div>
+        <div class="mrow"><span class="mrow-name">Taxa de Conversas</span><span class="mrow-val blue">0,08%</span></div>
+        <div class="mrow"><span class="mrow-name">Custo por Conversa</span><span class="mrow-val">R$ 22,28</span></div>
         <div class="mrow"><span class="mrow-name">CPM — Custo por 1.000 Impressões</span><span class="mrow-val">R$ 16,98</span></div>
-        <div class="mrow"><span class="mrow-name">Custo por Conversa</span><span class="mrow-val blue">R$ 22,28</span></div>
         <div class="hbox gold">
           💡 Facebook gerou <strong>62.994 impressões</strong> e iniciou <strong>48 conversas</strong> com potenciais clientes — importante para alimentar o pipeline de vendas.
         </div>
@@ -791,117 +792,215 @@
         <div class="mrow"><span class="mrow-name">Investimento</span><span class="mrow-val gold">R$ 1.056,33</span></div>
         <div class="mrow"><span class="mrow-name">Impressões</span><span class="mrow-val">814</span></div>
         <div class="mrow"><span class="mrow-name">Conversões</span><span class="mrow-val">35</span></div>
-        <div class="mrow"><span class="mrow-name">Taxa de Conversão (CTR→Conv.)</span><span class="mrow-val green">4,30%</span></div>
+        <div class="mrow"><span class="mrow-name">Taxa de Conversão</span><span class="mrow-val green">4,30%</span></div>
         <div class="mrow"><span class="mrow-name">Custo por Conversão</span><span class="mrow-val">R$ 30,18</span></div>
         <div class="mrow"><span class="mrow-name">CPM — Custo por 1.000 Impressões</span><span class="mrow-val">R$ 1.297,70</span></div>
         <div class="hbox green">
-          ✅ Google gerou <strong>35 conversões</strong> com alta intenção de compra. Custo por conversão de R$&nbsp;30,18 demonstra boa qualidade da campanha de pesquisa.
+          ✅ Google gerou <strong>35 conversões</strong> com alta intenção de compra. Taxa de 4,30% demonstra boa qualidade da campanha de pesquisa.
         </div>
       </div>
     </div>
   </div>
 
-  <!-- GRÁFICOS ABRIL -->
+  <!-- ══ 3. GRÁFICOS ══ -->
   <div class="section-gap">
     <div class="section-head">
       <div class="dot"></div>
-      <h2>Análise Visual — Abril 2025</h2>
+      <h2>Análise Visual das Plataformas</h2>
     </div>
     <div class="grid-3">
+
+      <!-- Donut Budget -->
       <div class="card">
         <div class="card-head">
           <div class="card-head-text">
             <h3>Distribuição do Budget</h3>
-            <p>Meta vs Google — Abril</p>
+            <p>Alocação entre plataformas</p>
           </div>
         </div>
         <div class="chart-box">
           <canvas id="chartBudgetAbril"></canvas>
         </div>
       </div>
+
+      <!-- Bar Interações -->
       <div class="card">
         <div class="card-head">
           <div class="card-head-text">
             <h3>Interações por Plataforma</h3>
-            <p>Conversas (Meta) vs Conversões (Google)</p>
+            <p>Conversas (Meta) e Conversões (Google)</p>
           </div>
         </div>
         <div class="chart-box">
           <canvas id="chartConvAbril"></canvas>
         </div>
       </div>
+
+      <!-- Taxa Comparativa -->
       <div class="card">
         <div class="card-head">
           <div class="card-head-text">
-            <h3>Resultado de Vendas</h3>
-            <p>Investimento vs Retorno</p>
+            <h3>Taxa de Ação Comparativa</h3>
+            <p>% de ações sobre impressões</p>
           </div>
         </div>
-        <div style="padding-top:10px;">
-          <div class="mrow"><span class="mrow-name">Total Investido</span><span class="mrow-val red">R$ 2.125,94</span></div>
-          <div class="mrow"><span class="mrow-name">Valor em Vendas</span><span class="mrow-val gold">R$ 790,00</span></div>
-          <div class="mrow"><span class="mrow-name">Retorno por Real Investido</span><span class="mrow-val blue">R$ 0,37</span></div>
-          <div class="mrow"><span class="mrow-name">Fechamentos</span><span class="mrow-val green">2 vendas</span></div>
-          <div class="mrow"><span class="mrow-name">CAC (Custo por Aquisição)</span><span class="mrow-val">R$ 1.062,97</span></div>
-          <div class="hbox blue" style="margin-top:16px;">
-            📈 Abril foi o mês de <strong>aceleração e aprendizado</strong>. Os dados geraram os ajustes que impulsionaram os resultados de Maio.
+        <div style="padding-top: 10px;">
+          <div class="ctr-row">
+            <div class="top">
+              <span class="ctr-plat">📘 Meta — Taxa de Conversas</span>
+              <span class="ctr-val">0,08%</span>
+            </div>
+            <div class="prog-track">
+              <div class="prog-fill" style="width: 1.86%; background: #4267B2;"></div>
+            </div>
+          </div>
+          <div class="ctr-row">
+            <div class="top">
+              <span class="ctr-plat">🔍 Google — Taxa de Conversões</span>
+              <span class="ctr-val">4,30%</span>
+            </div>
+            <div class="prog-track">
+              <div class="prog-fill" style="width: 100%; background: linear-gradient(90deg,#EA4335,#F47F72);"></div>
+            </div>
+          </div>
+          <div class="hbox red" style="margin-top: 20px;">
+            🎯 Google teve taxa de ação <strong>53× maior</strong> que o Meta — confirma que a pesquisa ativa captura leads com intenção de compra já formada.
+          </div>
+          <div style="text-align:center; margin-top: 18px;">
+            <span style="font-size:11px; color:var(--gray);">Média do setor (pesquisa)</span>
+            <div style="font-size:22px; font-weight:800; color:var(--gray); margin-top:4px;">3 – 5%</div>
+            <div style="font-size:10px; color:var(--green); margin-top:4px; letter-spacing:1px; font-weight:700;">▲ CAMARGO: 4,30%</div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- COMPARATIVO ABRIL vs MAIO -->
+  <!-- ══ 4. CRM — FUNIL + FINANCEIRO ══ -->
   <div class="section-gap">
     <div class="section-head">
       <div class="dot"></div>
-      <h2>Comparativo — Abril vs Maio 2025</h2>
+      <h2>CRM &amp; Resultados — Abril 2025</h2>
     </div>
-    <div class="grid-3">
-      <div class="roi-card v-red">
-        <div class="sub">Investimento</div>
-        <div style="display:flex;justify-content:space-around;align-items:flex-end;gap:8px;margin:10px 0;">
-          <div style="text-align:center;">
-            <div style="font-size:11px;color:var(--gray);margin-bottom:4px;">Abril</div>
-            <div style="font-size:22px;font-weight:900;color:var(--red-light);">R$ 2.125</div>
-          </div>
-          <div style="font-size:20px;color:var(--gray);">→</div>
-          <div style="text-align:center;">
-            <div style="font-size:11px;color:var(--gray);margin-bottom:4px;">Maio</div>
-            <div style="font-size:22px;font-weight:900;color:var(--red-light);">R$ 2.144</div>
+    <div class="grid-2">
+
+      <!-- Funil Abril -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-icon ci-crm">📊</div>
+          <div class="card-head-text">
+            <h3>Funil de Conversão</h3>
+            <p>Das impressões ao fechamento</p>
           </div>
         </div>
-        <div class="desc">Investimento estável entre os meses</div>
+        <div class="funnel">
+          <div class="funnel-row">
+            <div class="funnel-lbl">Impressões</div>
+            <div class="funnel-track">
+              <div class="funnel-bar" style="width:100%; background:linear-gradient(90deg,#4267B2,#3b5998);">63.808</div>
+            </div>
+            <div class="funnel-num">63,8K</div>
+          </div>
+          <div class="funnel-row">
+            <div class="funnel-lbl">Interações</div>
+            <div class="funnel-track">
+              <div class="funnel-bar" style="width:0.13%; background:linear-gradient(90deg,#C8943A,#a67c30);">83</div>
+            </div>
+            <div class="funnel-num">83</div>
+          </div>
+          <div class="funnel-row">
+            <div class="funnel-lbl">Fechamentos</div>
+            <div class="funnel-track">
+              <div class="funnel-bar" style="width:0.003%; background:linear-gradient(90deg,#27AE60,#1e8449);"></div>
+            </div>
+            <div class="funnel-num" style="color:var(--green);">2</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <div class="mrow">
+            <span class="mrow-name">Impressão → Interação</span>
+            <span class="mrow-val gold">0,13%</span>
+          </div>
+          <div class="mrow">
+            <span class="mrow-name">Interação → Fechamento</span>
+            <span class="mrow-val blue">2,41%</span>
+          </div>
+          <div class="mrow">
+            <span class="mrow-name">Custo por Interação</span>
+            <span class="mrow-val">R$ 25,61</span>
+          </div>
+          <div class="mrow">
+            <span class="mrow-name">Custo por Aquisição (CAC)</span>
+            <span class="mrow-val red">R$ 1.062,97</span>
+          </div>
+        </div>
+        <div class="hbox gold">
+          💡 <strong>83 interações</strong> geradas no mês. Com apenas 2 fechamentos, otimizar o processo de follow-up é o principal alavancador de resultado para os próximos meses.
+        </div>
+      </div>
+
+      <!-- Financeiro Abril -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-icon ci-money">💰</div>
+          <div class="card-head-text">
+            <h3>Resultado Financeiro</h3>
+            <p>Vendas via tráfego — Abril 2025</p>
+          </div>
+        </div>
+
+        <div class="big-num">
+          <div class="sub">Total em Vendas via Tráfego</div>
+          <div class="val">R$ 790,00</div>
+          <div class="desc">2 contratos fechados no período</div>
+        </div>
+
+        <div class="prog-wrap">
+          <div class="prog-header">
+            <span class="prog-name">🎯 Tráfego Pago (Anúncios)</span>
+            <span class="prog-value" style="color:var(--gold);">R$ 790,00</span>
+          </div>
+          <div class="prog-track" style="height:12px;">
+            <div class="prog-fill" style="width:100%; background:linear-gradient(90deg,var(--gold),var(--gold-lt));"></div>
+          </div>
+        </div>
+
+        <div class="rep-box">
+          <div class="sub">Retorno sobre Investimento</div>
+          <div class="val">R$ 0,37</div>
+          <div class="desc">Retornado por cada real investido em anúncios</div>
+        </div>
+
+        <div class="hbox blue" style="margin-top:16px;">
+          📈 Abril foi o mês de <strong>construção de base</strong>. Os aprendizados deste período geraram os ajustes que impulsionaram os resultados de Maio, com <strong>+189% em vendas</strong> e <strong>+200% em fechamentos</strong>.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ 5. ROI ══ -->
+  <div class="section-gap">
+    <div class="section-head">
+      <div class="dot"></div>
+      <h2>Retorno sobre Investimento</h2>
+    </div>
+    <div class="roi-grid">
+      <div class="roi-card v-red">
+        <div class="sub">Total Investido em Ads</div>
+        <div class="val">R$ 2.125,94</div>
+        <div class="desc">Facebook + Google · Abril 2025<br>Custo para gerar 83 interações</div>
       </div>
       <div class="roi-card v-gold">
-        <div class="sub">Valor em Vendas</div>
-        <div style="display:flex;justify-content:space-around;align-items:flex-end;gap:8px;margin:10px 0;">
-          <div style="text-align:center;">
-            <div style="font-size:11px;color:var(--gray);margin-bottom:4px;">Abril</div>
-            <div style="font-size:22px;font-weight:900;color:var(--gold);">R$ 790</div>
-          </div>
-          <div style="font-size:20px;color:var(--green);">→</div>
-          <div style="text-align:center;">
-            <div style="font-size:11px;color:var(--gray);margin-bottom:4px;">Maio</div>
-            <div style="font-size:22px;font-weight:900;color:var(--gold);">R$ 2.290</div>
-          </div>
-        </div>
-        <div class="desc" style="color:var(--green);font-weight:700;">▲ +189% de crescimento</div>
+        <div class="sub">Retorno em Vendas</div>
+        <div class="val">R$ 790,00</div>
+        <div class="desc">2 contratos fechados<br>via anúncios pagos</div>
       </div>
       <div class="roi-card v-green">
-        <div class="sub">Fechamentos</div>
-        <div style="display:flex;justify-content:space-around;align-items:flex-end;gap:8px;margin:10px 0;">
-          <div style="text-align:center;">
-            <div style="font-size:11px;color:var(--gray);margin-bottom:4px;">Abril</div>
-            <div style="font-size:30px;font-weight:900;color:var(--green);">2</div>
-          </div>
-          <div style="font-size:20px;color:var(--green);">→</div>
-          <div style="text-align:center;">
-            <div style="font-size:11px;color:var(--gray);margin-bottom:4px;">Maio</div>
-            <div style="font-size:30px;font-weight:900;color:var(--green);">6</div>
-          </div>
-        </div>
-        <div class="desc" style="color:var(--green);font-weight:700;">▲ +200% mais fechamentos</div>
+        <div class="sub">Custo por Aquisição (CAC)</div>
+        <div class="val">R$ 1.062,97</div>
+        <div class="desc">Custo médio para fechar<br>cada contrato no mês</div>
       </div>
     </div>
   </div>
