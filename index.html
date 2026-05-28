@@ -244,6 +244,39 @@
     .ctr-plat { font-size: 12px; font-weight: 600; color: var(--gray-lt); }
     .ctr-val  { font-size: 13px; font-weight: 800; color: var(--white); }
 
+    /* ─── TABS ─── */
+    .tab-nav {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      padding: 0 56px;
+      display: flex;
+      gap: 4px;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      padding: 16px 24px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray);
+      cursor: pointer;
+      transition: color .2s, border-color .2s;
+      margin-bottom: -1px;
+    }
+    .tab-btn:hover { color: var(--gray-lt); }
+    .tab-btn.active { color: var(--white); border-bottom-color: var(--red); }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    @media (max-width: 640px) {
+      .tab-nav { padding: 0 14px; }
+      .tab-btn { padding: 14px 16px; font-size: 10px; letter-spacing: 1px; }
+    }
+
     /* ─── FOOTER ─── */
     .footer {
       background: var(--bg2);
@@ -364,6 +397,13 @@
   </div>
 </header>
 
+<!-- TABS NAV -->
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('maio')">Maio 2025</button>
+  <button class="tab-btn" onclick="switchTab('abril')">Abril 2025</button>
+</nav>
+
+<div id="tab-maio" class="tab-content active">
 <div class="container">
 
   <!-- ══ 1. RESUMO EXECUTIVO ══ -->
@@ -671,6 +711,203 @@
   </div>
 
 </div><!-- /container -->
+</div><!-- /tab-maio -->
+
+<!-- ══════════════ TAB ABRIL ══════════════ -->
+<div id="tab-abril" class="tab-content">
+<div class="container">
+
+  <!-- KPIs ABRIL -->
+  <div class="section-gap">
+    <div class="section-head">
+      <div class="dot"></div>
+      <h2>Resumo Executivo — Abril 2025</h2>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi c-red">
+        <div class="kpi-lbl">Total Investido</div>
+        <div class="kpi-val">R$&nbsp;2.125<small>,94</small></div>
+        <div class="kpi-hint">Facebook + Google Ads<br>Abril 2025</div>
+      </div>
+      <div class="kpi c-gold">
+        <div class="kpi-lbl">Conversas (Meta)</div>
+        <div class="kpi-val">48</div>
+        <div class="kpi-hint">Iniciadas via anúncios<br>Custo: R$ 22,28 / conv.</div>
+      </div>
+      <div class="kpi c-blue">
+        <div class="kpi-lbl">Conversões (Google)</div>
+        <div class="kpi-val">35</div>
+        <div class="kpi-hint">Via rede de pesquisa<br>Custo: R$ 30,18 / conv.</div>
+      </div>
+      <div class="kpi c-green">
+        <div class="kpi-lbl">Fechamentos</div>
+        <div class="kpi-val">2</div>
+        <div class="kpi-hint">Vendas confirmadas<br>CAC: R$ 1.062,97</div>
+      </div>
+      <div class="kpi c-purple">
+        <div class="kpi-lbl">Valor em Vendas</div>
+        <div class="kpi-val">R$&nbsp;790<small>,00</small></div>
+        <div class="kpi-hint">Receita gerada<br>via tráfego pago</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MÍDIA PAGA ABRIL -->
+  <div class="section-gap">
+    <div class="section-head">
+      <div class="dot"></div>
+      <h2>Investimento em Mídia Paga — Abril 2025</h2>
+    </div>
+    <div class="grid-2">
+
+      <!-- Meta Abril -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-icon ci-fb">📘</div>
+          <div class="card-head-text">
+            <h3>Facebook &amp; Instagram Ads</h3>
+            <p>Meta Ads — Alcance e Reconhecimento de Marca</p>
+          </div>
+        </div>
+        <div class="mrow"><span class="mrow-name">Investimento</span><span class="mrow-val gold">R$ 1.069,61</span></div>
+        <div class="mrow"><span class="mrow-name">Impressões</span><span class="mrow-val">62.994</span></div>
+        <div class="mrow"><span class="mrow-name">Conversas Iniciadas</span><span class="mrow-val">48</span></div>
+        <div class="mrow"><span class="mrow-name">CPM — Custo por 1.000 Impressões</span><span class="mrow-val">R$ 16,98</span></div>
+        <div class="mrow"><span class="mrow-name">Custo por Conversa</span><span class="mrow-val blue">R$ 22,28</span></div>
+        <div class="hbox gold">
+          💡 Facebook gerou <strong>62.994 impressões</strong> e iniciou <strong>48 conversas</strong> com potenciais clientes — importante para alimentar o pipeline de vendas.
+        </div>
+      </div>
+
+      <!-- Google Abril -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-icon ci-gg">🔍</div>
+          <div class="card-head-text">
+            <h3>Google Ads</h3>
+            <p>Rede de Pesquisa — Alta Intenção de Compra</p>
+          </div>
+        </div>
+        <div class="mrow"><span class="mrow-name">Investimento</span><span class="mrow-val gold">R$ 1.056,33</span></div>
+        <div class="mrow"><span class="mrow-name">Impressões</span><span class="mrow-val">814</span></div>
+        <div class="mrow"><span class="mrow-name">Conversões</span><span class="mrow-val">35</span></div>
+        <div class="mrow"><span class="mrow-name">Taxa de Conversão (CTR→Conv.)</span><span class="mrow-val green">4,30%</span></div>
+        <div class="mrow"><span class="mrow-name">Custo por Conversão</span><span class="mrow-val">R$ 30,18</span></div>
+        <div class="mrow"><span class="mrow-name">CPM — Custo por 1.000 Impressões</span><span class="mrow-val">R$ 1.297,70</span></div>
+        <div class="hbox green">
+          ✅ Google gerou <strong>35 conversões</strong> com alta intenção de compra. Custo por conversão de R$&nbsp;30,18 demonstra boa qualidade da campanha de pesquisa.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRÁFICOS ABRIL -->
+  <div class="section-gap">
+    <div class="section-head">
+      <div class="dot"></div>
+      <h2>Análise Visual — Abril 2025</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-head">
+          <div class="card-head-text">
+            <h3>Distribuição do Budget</h3>
+            <p>Meta vs Google — Abril</p>
+          </div>
+        </div>
+        <div class="chart-box">
+          <canvas id="chartBudgetAbril"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <div class="card-head-text">
+            <h3>Interações por Plataforma</h3>
+            <p>Conversas (Meta) vs Conversões (Google)</p>
+          </div>
+        </div>
+        <div class="chart-box">
+          <canvas id="chartConvAbril"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <div class="card-head-text">
+            <h3>Resultado de Vendas</h3>
+            <p>Investimento vs Retorno</p>
+          </div>
+        </div>
+        <div style="padding-top:10px;">
+          <div class="mrow"><span class="mrow-name">Total Investido</span><span class="mrow-val red">R$ 2.125,94</span></div>
+          <div class="mrow"><span class="mrow-name">Valor em Vendas</span><span class="mrow-val gold">R$ 790,00</span></div>
+          <div class="mrow"><span class="mrow-name">Retorno por Real Investido</span><span class="mrow-val blue">R$ 0,37</span></div>
+          <div class="mrow"><span class="mrow-name">Fechamentos</span><span class="mrow-val green">2 vendas</span></div>
+          <div class="mrow"><span class="mrow-name">CAC (Custo por Aquisição)</span><span class="mrow-val">R$ 1.062,97</span></div>
+          <div class="hbox blue" style="margin-top:16px;">
+            📈 Abril foi o mês de <strong>aceleração e aprendizado</strong>. Os dados geraram os ajustes que impulsionaram os resultados de Maio.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARATIVO ABRIL vs MAIO -->
+  <div class="section-gap">
+    <div class="section-head">
+      <div class="dot"></div>
+      <h2>Comparativo — Abril vs Maio 2025</h2>
+    </div>
+    <div class="grid-3">
+      <div class="roi-card v-red">
+        <div class="sub">Investimento</div>
+        <div style="display:flex;justify-content:space-around;align-items:flex-end;gap:8px;margin:10px 0;">
+          <div style="text-align:center;">
+            <div style="font-size:11px;color:var(--gray);margin-bottom:4px;">Abril</div>
+            <div style="font-size:22px;font-weight:900;color:var(--red-light);">R$ 2.125</div>
+          </div>
+          <div style="font-size:20px;color:var(--gray);">→</div>
+          <div style="text-align:center;">
+            <div style="font-size:11px;color:var(--gray);margin-bottom:4px;">Maio</div>
+            <div style="font-size:22px;font-weight:900;color:var(--red-light);">R$ 2.144</div>
+          </div>
+        </div>
+        <div class="desc">Investimento estável entre os meses</div>
+      </div>
+      <div class="roi-card v-gold">
+        <div class="sub">Valor em Vendas</div>
+        <div style="display:flex;justify-content:space-around;align-items:flex-end;gap:8px;margin:10px 0;">
+          <div style="text-align:center;">
+            <div style="font-size:11px;color:var(--gray);margin-bottom:4px;">Abril</div>
+            <div style="font-size:22px;font-weight:900;color:var(--gold);">R$ 790</div>
+          </div>
+          <div style="font-size:20px;color:var(--green);">→</div>
+          <div style="text-align:center;">
+            <div style="font-size:11px;color:var(--gray);margin-bottom:4px;">Maio</div>
+            <div style="font-size:22px;font-weight:900;color:var(--gold);">R$ 2.290</div>
+          </div>
+        </div>
+        <div class="desc" style="color:var(--green);font-weight:700;">▲ +189% de crescimento</div>
+      </div>
+      <div class="roi-card v-green">
+        <div class="sub">Fechamentos</div>
+        <div style="display:flex;justify-content:space-around;align-items:flex-end;gap:8px;margin:10px 0;">
+          <div style="text-align:center;">
+            <div style="font-size:11px;color:var(--gray);margin-bottom:4px;">Abril</div>
+            <div style="font-size:30px;font-weight:900;color:var(--green);">2</div>
+          </div>
+          <div style="font-size:20px;color:var(--green);">→</div>
+          <div style="text-align:center;">
+            <div style="font-size:11px;color:var(--gray);margin-bottom:4px;">Maio</div>
+            <div style="font-size:30px;font-weight:900;color:var(--green);">6</div>
+          </div>
+        </div>
+        <div class="desc" style="color:var(--green);font-weight:700;">▲ +200% mais fechamentos</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container abril -->
+</div><!-- /tab-abril -->
 
 <!-- ══ FOOTER ══ -->
 <footer class="footer">
@@ -679,6 +916,14 @@
 </footer>
 
 <script>
+  // ── Tab switching ──
+  function switchTab(tab) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    document.querySelectorAll('.tab-btn')[tab === 'maio' ? 0 : 1].classList.add('active');
+  }
+
   // ── Budget Donut ──
   new Chart(document.getElementById('chartBudget'), {
     type: 'doughnut',
@@ -749,6 +994,64 @@
           grid: { display: false },
           ticks: { color: '#9B9189', font: { size: 10.5, family: 'Montserrat', weight: '600' } }
         }
+      }
+    }
+  });
+
+  // ── Abril: Budget Donut ──
+  new Chart(document.getElementById('chartBudgetAbril'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Meta Ads', 'Google Ads'],
+      datasets: [{
+        data: [1069.61, 1056.33],
+        backgroundColor: ['#4267B2', '#EA4335'],
+        borderColor: ['#1A1310', '#1A1310'],
+        borderWidth: 4,
+        hoverOffset: 6,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '66%',
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: { color: '#9B9189', font: { size: 10.5, family: 'Montserrat', weight: '600' }, padding: 14, usePointStyle: true }
+        },
+        tooltip: {
+          callbacks: { label: ctx => ` R$ ${ctx.parsed.toFixed(2).replace('.', ',')} (${((ctx.parsed / 2125.94)*100).toFixed(1)}%)` }
+        }
+      }
+    }
+  });
+
+  // ── Abril: Interações Bar ──
+  new Chart(document.getElementById('chartConvAbril'), {
+    type: 'bar',
+    data: {
+      labels: ['Meta (Conversas)', 'Google (Conversões)'],
+      datasets: [{
+        label: 'Interações',
+        data: [48, 35],
+        backgroundColor: ['rgba(66,103,178,.75)', 'rgba(234,67,53,.75)'],
+        borderColor: ['#4267B2', '#EA4335'],
+        borderWidth: 2,
+        borderRadius: 7,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.y} interações` } }
+      },
+      scales: {
+        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,.05)' }, ticks: { color: '#9B9189', font: { size: 10, family: 'Montserrat' } } },
+        x: { grid: { display: false }, ticks: { color: '#9B9189', font: { size: 9.5, family: 'Montserrat', weight: '600' } } }
       }
     }
   });
