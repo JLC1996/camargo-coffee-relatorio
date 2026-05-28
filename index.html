@@ -399,11 +399,11 @@
 
 <!-- TABS NAV -->
 <nav class="tab-nav">
-  <button class="tab-btn active" onclick="switchTab('maio')">Maio 2025</button>
-  <button class="tab-btn" onclick="switchTab('abril')">Abril 2025</button>
+  <button class="tab-btn active" onclick="switchTab('abril')">Abril 2025</button>
+  <button class="tab-btn" onclick="switchTab('maio')">Maio 2025</button>
 </nav>
 
-<div id="tab-maio" class="tab-content active">
+<div id="tab-maio" class="tab-content">
 <div class="container">
 
   <!-- ══ 1. RESUMO EXECUTIVO ══ -->
@@ -714,7 +714,7 @@
 </div><!-- /tab-maio -->
 
 <!-- ══════════════ TAB ABRIL ══════════════ -->
-<div id="tab-abril" class="tab-content">
+<div id="tab-abril" class="tab-content active">
 <div class="container">
 
   <!-- ══ 1. RESUMO EXECUTIVO ══ -->
@@ -1020,7 +1020,7 @@
     document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
     document.getElementById('tab-' + tab).classList.add('active');
-    document.querySelectorAll('.tab-btn')[tab === 'maio' ? 0 : 1].classList.add('active');
+    document.querySelectorAll('.tab-btn')[tab === 'abril' ? 0 : 1].classList.add('active');
   }
 
   // ── Budget Donut ──
